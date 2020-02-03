@@ -23,12 +23,18 @@ public class DBconnection {
     static String path;
     static Connection connect;
 
-    //crear base de datos para nuevo programa
+    //crear base de datos para nuevo programa en caso que no exista
     public static void crearBase() throws IOException {
+        //usamos un new file para obtener el path canonico
             File f = new File("");
             path = f.getCanonicalPath();
-            File base = new File(path + "/Base/Hulk.db");
+            //obtenemos separadores de archivos de OS nativo
+            String ret = System.getProperty("file.separator");
+            File base = new File(path +ret+"/Base"+ret+"Hulk.db");
+            File fi = new File(path+"/Base");
+            System.out.println(base.exists());
             if (base.exists() == false) {
+                fi.mkdir();
                 base.createNewFile();
                 crearTabla();
             }
