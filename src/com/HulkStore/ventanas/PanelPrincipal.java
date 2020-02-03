@@ -180,15 +180,18 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNbuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNbuscaActionPerformed
+        //busqueda de productos meidiante formulario
         buscaProduto();
     }//GEN-LAST:event_BTNbuscaActionPerformed
 
     private void BTNnuevoproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNnuevoproductoActionPerformed
+        //llamar formulario de agregar pdoructos nuevos
         AgregarProducto agrega = new AgregarProducto(this, true);
         agrega.setVisible(true);
     }//GEN-LAST:event_BTNnuevoproductoActionPerformed
 
     private void BTNingresomercaderiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNingresomercaderiaActionPerformed
+        //aumento de mercaderia por compra
         if (TBLproductos.getSelectedRow() < 0){
             javax.swing.JOptionPane.showMessageDialog(this, "Seleccione un item de la lista","Informacion",javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
@@ -203,6 +206,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNingresomercaderiaActionPerformed
 
     private void BTNventamercaderiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNventamercaderiaActionPerformed
+        //disminuir inventario por venta
         if (TBLproductos.getSelectedRow() < 0){
             javax.swing.JOptionPane.showMessageDialog(this, "Seleccione un item de la lista","Informacion",javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
