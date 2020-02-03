@@ -30,16 +30,17 @@ public class DBconnection {
             path = f.getCanonicalPath();
             //obtenemos separadores de archivos de OS nativo
             String ret = System.getProperty("file.separator");
+            //defino ubicacion de la base de datos y si no existe, creo el directorio dentro del sistema y luego el archivo
             File base = new File(path +ret+"/Base"+ret+"Hulk.db");
-            File fi = new File(path+"/Base");
-            System.out.println(base.exists());
             if (base.exists() == false) {
+                File fi = new File(path+"/Base");
                 fi.mkdir();
                 base.createNewFile();
                 crearTabla();
             }
     }
     private static void crearTabla(){
+        //si la base no existe, luego de crearla, se crea la tabla necesaria para funcionar
         try {
             Connection con = conectar();
             PreparedStatement pst = con.prepareStatement("CREATE TABLE \"Productos\" ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, `Codigo` TEXT, `Descripcion` TEXT, `Stock` INTEGER )");
